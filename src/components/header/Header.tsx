@@ -6,6 +6,7 @@ import Tooltip from '@mui/material/Tooltip'
 import IconButton from '@mui/material/IconButton'
 import DarkThemeIcon from '@mui/icons-material/Brightness4'
 import LightThemeIcon from '@mui/icons-material/Brightness7'
+import Typography from '@mui/material/Typography'
 
 import ChainLabel from 'src/components/chain-label/ChainLabel'
 import safeHeaderLogo from 'src/assets/safe-header-logo.svg'
@@ -33,6 +34,10 @@ function Header({ setStep }: HeaderProps) {
             src={safeHeaderLogo}
             alt="app logo"
           />
+          {"      "}
+        <Typography variant="h1" fontSize="44px" lineHeight="76px">
+        SheerPay
+      </Typography>
 
           <Box display="flex" alignItems="center" justifyContent="flex-end" flexGrow={1} gap={1}>
             {/* chain label */}

@@ -5,7 +5,7 @@ import Divider from '@mui/material/Divider'
 import styled from '@emotion/styled'
 import { Theme } from '@mui/material'
 
-import safeLogo from 'src/assets/safe-logo.svg'
+// import safeLogo from 'src/assets/safe-logo.svg'
 import ChainSelector from 'src/components/chain-selector/ChainSelector'
 
 type IntroProps = {
@@ -21,15 +21,14 @@ const Intro = ({ setStep }: IntroProps) => {
       paddingTop="72px"
       paddingLeft="100px"
     >
-      <img src={safeLogo} alt="safe logo" height="30px" />
+      {/**<img src={safeLogo} alt="safe logo" height="30px" />*/}
 
       <Typography variant="h1" fontSize="64px" lineHeight="76px">
-        Account Abstraction SDK
+        SheerPay
       </Typography>
 
       <Typography variant="body1">
-        Add account abstraction functionality into your apps. Here you can find examples on how to
-        use our different kits:
+        Get onboareded into Web3 with your email or socials. Recieve payment and send payment to .customers, friends and loved ones without a custodian crypto wallet.:
       </Typography>
 
       {/* Kit list */}
@@ -39,7 +38,7 @@ const Intro = ({ setStep }: IntroProps) => {
             01
           </OrderLabel>
           <Typography fontWeight="700" fontSize="20px">
-            Auth Kit
+            Emails
           </Typography>
         </Box>
 
@@ -48,7 +47,7 @@ const Intro = ({ setStep }: IntroProps) => {
             02
           </OrderLabel>
           <Typography fontWeight="700" fontSize="20px">
-            Onramp Kit
+            Socials
           </Typography>
         </Box>
 
@@ -57,13 +56,13 @@ const Intro = ({ setStep }: IntroProps) => {
             03
           </OrderLabel>
           <Typography fontWeight="700" fontSize="20px">
-            Relay Kit
+            Gasless
           </Typography>
         </Box>
       </Box>
 
       <Divider style={{ alignSelf: 'stretch', margin: '42px 0' }} />
-
+{/**
       <Typography variant="h2" fontWeight="700" fontSize="20px">
         To start using interactive demo select a network:
       </Typography>
@@ -71,14 +70,15 @@ const Intro = ({ setStep }: IntroProps) => {
       <Typography>
         Consider that the Onramp kit will only work on Mumbai test chain and US based connection.
       </Typography>
-
+ 
       <Box display="flex" gap={2} marginTop="32px" alignItems="center">
         <ChainSelector />
+/Box>
+*/}
 
-        <Button variant="contained" onClick={() => setStep(1)}>
-          Start Demo
-        </Button>
-      </Box>
+            <Button variant="contained" onClick={() => setStep(1)}>
+            Get Started
+          </Button>
     </Box>
   )
 }
