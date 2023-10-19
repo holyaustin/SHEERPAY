@@ -27,8 +27,8 @@ const Intro = ({ setStep }: IntroProps) => {
         SheerPay
       </Typography>
 
-      <Typography variant="body1">
-        Get onboareded into Web3 with your email or socials. Recieve payment and send payment to .customers, friends and loved ones without a custodian crypto wallet.:
+      <Typography variant="body1" marginTop="36px" fontSize="20px"  >
+        Get onboareded seamleeslyinto Web3 with your email or socials. Recieve payments from clients, customers or anyone without the hazzle of a custodian crypto wallet. Send funds customers, friends and loved ones without paying for gas fee:
       </Typography>
 
       {/* Kit list */}
@@ -59,12 +59,20 @@ const Intro = ({ setStep }: IntroProps) => {
             Gasless
           </Typography>
         </Box>
+        <Box display="flex" gap={1}>
+          <OrderLabel fontSize="10px" fontWeight="700">
+            04
+          </OrderLabel>
+          <Typography fontWeight="700" fontSize="20px">
+            Keyless
+          </Typography>
+        </Box>
       </Box>
 
       <Divider style={{ alignSelf: 'stretch', margin: '42px 0' }} />
-{/**
+
       <Typography variant="h2" fontWeight="700" fontSize="20px">
-        To start using interactive demo select a network:
+        To start using this payment platform, select a network:
       </Typography>
 
       <Typography>
@@ -73,12 +81,11 @@ const Intro = ({ setStep }: IntroProps) => {
  
       <Box display="flex" gap={2} marginTop="32px" alignItems="center">
         <ChainSelector />
-/Box>
-*/}
 
-            <Button variant="contained" onClick={() => setStep(1)}>
+        <Button variant="contained" onClick={() => setStep(1)}>
             Get Started
           </Button>
+</Box>
     </Box>
   )
 }

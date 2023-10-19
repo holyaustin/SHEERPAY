@@ -12,18 +12,17 @@ import { ConnectContainer, ConnectedContainer } from 'src/components/styles'
 import { useAccountAbstraction } from 'src/store/accountAbstractionContext'
 //import { WEB3AUTH_SNIPPET } from 'src/utils/snippets'
 
-const AuthKitDemo = () => {
+const Chat = () => {
   const { loginWeb3Auth, isAuthenticated } = useAccountAbstraction()
 
   return (
     <>
       <Typography variant="h2" component="h1">
-        Create keyless Account
+        Chat Chat Chat
       </Typography>
 
       <Typography marginTop="16px">
-        Generate or authenticate a blockchain account using an email address, social media account,
-        or traditional crypto wallets like Metamask.
+        Send notification of payment through chat.
       </Typography>
 {/**
       <Typography marginTop="24px" marginBottom="8px">
@@ -92,4 +91,4 @@ const AuthKitDemo = () => {
   )
 }
 
-export default AuthKitDemo
+export default Chat

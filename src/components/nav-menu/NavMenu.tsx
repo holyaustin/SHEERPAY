@@ -16,7 +16,7 @@ const NavMenu = ({ setStep, activeStep }: NavMenuProps) => {
       <MenuList>
         <NavItem onClick={() => setStep(0)} active={activeStep === 0}>
           <Typography fontWeight="700" fontSize="20px">
-            Intro
+            Home
           </Typography>
         </NavItem>
 
@@ -25,7 +25,7 @@ const NavMenu = ({ setStep, activeStep }: NavMenuProps) => {
             01
           </OrderLabel>
           <Typography fontWeight="700" fontSize="20px" marginLeft="12px">
-            Auth Kit
+            Create Account
           </Typography>
         </NavItem>
 
@@ -34,7 +34,7 @@ const NavMenu = ({ setStep, activeStep }: NavMenuProps) => {
             02
           </OrderLabel>
           <Typography fontWeight="700" fontSize="20px" marginLeft="12px">
-            Onramp Kit
+            Fund Account
           </Typography>
         </NavItem>
 
@@ -43,7 +43,60 @@ const NavMenu = ({ setStep, activeStep }: NavMenuProps) => {
             03
           </OrderLabel>
           <Typography fontWeight="700" fontSize="20px" marginLeft="12px">
-            Relay Kit
+            Create Safe / Send Fund
+          </Typography>
+        </NavItem>
+
+        <NavItem onClick={() => setStep(4)} active={activeStep === 4}>
+          <OrderLabel fontSize="10px" fontWeight="700">
+            04
+          </OrderLabel>
+          <Typography fontWeight="700" fontSize="20px" marginLeft="12px">
+            Swap Token
+          </Typography>
+        </NavItem>
+
+        <NavItem onClick={() => setStep(5)} active={activeStep === 5}>
+          <OrderLabel fontSize="10px" fontWeight="700">
+            05
+          </OrderLabel>
+          <Typography fontWeight="700" fontSize="20px" marginLeft="12px">
+            Claim NFT Swag
+          </Typography>
+        </NavItem>
+
+        <NavItem onClick={() => setStep(6)} active={activeStep === 6}>
+          <OrderLabel fontSize="10px" fontWeight="700">
+            06
+          </OrderLabel>
+          <Typography fontWeight="700" fontSize="20px" marginLeft="12px">
+          Chat
+          </Typography>
+        </NavItem>
+
+        <NavItem onClick={() => setStep(7)} active={activeStep === 7}>
+          <OrderLabel fontSize="10px" fontWeight="700">
+            07
+          </OrderLabel>
+          <Typography fontWeight="700" fontSize="20px" marginLeft="12px">
+            Activites
+          </Typography>
+        </NavItem>
+
+        <NavItem onClick={() => setStep(8)} active={activeStep === 8}>
+          <OrderLabel fontSize="10px" fontWeight="700">
+            08
+          </OrderLabel>
+          <Typography fontWeight="700" fontSize="20px" marginLeft="12px">
+            Profile
+          </Typography>
+        </NavItem>
+        <NavItem onClick={() => setStep(0)} active={activeStep === 0}>
+          <OrderLabel fontSize="10px" fontWeight="700">
+            09
+          </OrderLabel>
+          <Typography fontWeight="700" fontSize="20px" marginLeft="12px">
+            LogOut
           </Typography>
         </NavItem>
       </MenuList>

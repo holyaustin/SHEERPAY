@@ -14,10 +14,10 @@ import Tooltip from '@mui/material/Tooltip'
 import Typography from '@mui/material/Typography'
 
 import { useAccountAbstraction } from 'src/store/accountAbstractionContext'
-import { MONERIUM_SNIPPET, STRIPE_SNIPPET } from 'src/utils/snippets'
+//import { MONERIUM_SNIPPET, STRIPE_SNIPPET } from 'src/utils/snippets'
 import isContractAddress from 'src/utils/isContractAddress'
 
-import Code from 'src/components/code/Code'
+//import Code from 'src/components/code/Code'
 import AuthenticateMessage from 'src/components/authenticate-message/AuthenticateMessage'
 import { ConnectedContainer } from 'src/components/styles'
 import SafeAccount from 'src/components/safe-account/SafeAccount'
@@ -65,14 +65,14 @@ const OnRampKitDemo = ({ setStep }: OnRampKitDemoProps) => {
   return (
     <>
       <Typography variant="h2" component="h1">
-        The Onramp Kit
+        Fund your Account with Credit Card (on-ramp)
       </Typography>
 
       <Typography marginTop="16px">
         Allow users to buy cryptocurrencies using a credit card and other payment options directly
         within your app. Click on "Buy USDC" to on-ramp funds to your Safe using the Stripe widget!
       </Typography>
-
+{/**
       <Typography marginTop="24px" marginBottom="8px">
         Find more info at:
       </Typography>
@@ -91,12 +91,12 @@ const OnRampKitDemo = ({ setStep }: OnRampKitDemoProps) => {
       </Stack>
 
       <Divider style={{ margin: '32px 0 28px 0' }} />
-
-      {/* OnRamp Demo */}
+ */}
+      {/* OnRamp Demo 
       <Typography variant="h4" component="h2" fontWeight="700" marginBottom="16px">
         Interactive demo
       </Typography>
-
+*/}
       {!isAuthenticated ? (
         <AuthenticateMessage
           message="To use the Onramp Kit you need to be authenticated"
@@ -205,12 +205,13 @@ const OnRampKitDemo = ({ setStep }: OnRampKitDemoProps) => {
       )}
 
       <Divider style={{ margin: '40px 0 30px 0' }} />
-
+{/**
       <Typography variant="h3" component="h2" fontWeight="700" marginBottom="16px">
         How to use it
       </Typography>
 
       <Code text={tabsValue === 0 ? MONERIUM_SNIPPET : STRIPE_SNIPPET} language={'javascript'} />
+     */}
     </>
   )
 }

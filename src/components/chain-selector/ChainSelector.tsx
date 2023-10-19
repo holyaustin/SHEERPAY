@@ -11,7 +11,7 @@ const ChainSelector = () => {
 
   return (
     <div>
-      <FormControl fullWidth sx={{ minWidth: '150px' }}>
+      <FormControl fullWidth sx={{ minWidth: '200px' }}>
         <Select
           aria-label="chain selector"
           id="switch-chain-selector"
@@ -23,7 +23,9 @@ const ChainSelector = () => {
               <div
                 style={{
                   display: 'flex',
-                  justifyContent: 'center'
+                  justifyContent: 'center',
+                  fontWeight:'700',
+                  fontSize: '20px'
                 }}
               >
                 <ChainLabel chain={chain} />

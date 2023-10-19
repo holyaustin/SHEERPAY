@@ -16,6 +16,11 @@ import NavMenu from './components/nav-menu/NavMenu'
 import SafeCoreInfo from './components/safe-core-info/SafeCoreInfo'
 import { useAccountAbstraction } from './store/accountAbstractionContext'
 import isMoneriumRedirect from './utils/isMoneriumRedirect'
+import ClaimNFT from './pages/ClaimNFT'
+import Profile from './pages/Profile'
+import Swap from './pages/Swap'
+import Activities from './pages/Activities'
+import Chat from './pages/Chat'
 
 function App() {
   const { setChainId } = useAccountAbstraction()
@@ -118,15 +123,46 @@ const steps = [
   {
     // Auth Kit step
     component: AuthKitDemo,
-    nextLabel: 'to Onramp Kit'
+    nextLabel: 'Fund Account'
   },
   {
     // Onramp Kit step
     component: OnRampKitDemo,
-    nextLabel: 'to Relay Kit'
+    nextLabel: 'Create Safe / Send Fund'
   },
   {
     // Relay Kit step
-    component: RelayerKitDemo
+    component: RelayerKitDemo,
+    nextLabel: 'Swap'
+  },
+  {
+    // Swap step
+    component: Swap,
+    nextLabel: 'Claim NFT Swag'
+  },
+
+  {
+    // Claim NFT
+    component: ClaimNFT,
+    nextLabel: 'Chat'
+  },
+  {
+    // Chat step
+    component: Chat,
+    nextLabel: 'Activites'
+  },
+  {
+    // Activities step
+    component: Activities,
+    nextLabel: 'Profile'
+  },
+  {
+    // Profile step
+    component: Profile,
+    nextLabel: 'LogOut'
+  },
+  {
+    // Logout Kit step
+    component: Intro
   }
 ]

@@ -12,13 +12,13 @@ import { ConnectContainer, ConnectedContainer } from 'src/components/styles'
 import { useAccountAbstraction } from 'src/store/accountAbstractionContext'
 //import { WEB3AUTH_SNIPPET } from 'src/utils/snippets'
 
-const AuthKitDemo = () => {
+const Activities = () => {
   const { loginWeb3Auth, isAuthenticated } = useAccountAbstraction()
 
   return (
     <>
       <Typography variant="h2" component="h1">
-        Create keyless Account
+        Activities
       </Typography>
 
       <Typography marginTop="16px">
@@ -92,4 +92,4 @@ const AuthKitDemo = () => {
   )
 }
 
-export default AuthKitDemo
+export default Activities

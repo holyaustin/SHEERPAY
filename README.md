@@ -43,3 +43,14 @@ Run the demo App:
 ```bash
 yarn start
 ```
+
+IPFS metadata URI : <https://kezayya.infura-ipfs.io/ipfs/QmQDWyu9Myrmain5WjdP5rkuVQbS3rQTdTTrBuLeuYWShD>
+
+npx hardhat verify --network scrollSepolia 0xe078fe7A93017F8e18c1C52E79632d0B94c56c26
+
+Successfully submitted source code for contract
+contracts/Minter.sol:Minter at 0xe078fe7A93017F8e18c1C52E79632d0B94c56c26
+for verification on the block explorer. Waiting for verification result...
+
+Successfully verified contract Minter on the block explorer.
+https://sepolia-blockscout.scroll.io/address/0xe078fe7A93017F8e18c1C52E79632d0B94c56c26#code

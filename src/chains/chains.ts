@@ -13,10 +13,24 @@ export const gnosisChain: Chain = {
   isMoneriumPaymentsEnabled: false
 }
 
+export const MantleChain: Chain = {
+  id: '0x1388',
+  token: 'MNT',
+  shortName: 'mnt',
+  label: 'Mantle',
+  rpcUrl: 'https://rpc.mantle.xyz',
+  blockExplorerUrl: 'https://gnosisscan.io',
+  color: '#3e6957',
+  transactionServiceUrl: 'https://safe-transaction-gnosis-chain.safe.global',
+  isStripePaymentsEnabled: false,
+  isMoneriumPaymentsEnabled: false,
+  faucetUrl:"0x69f4D1788e39c87893C980c06EdF4b7f686e2938"
+}
+
 export const goerliChain: Chain = {
   id: '0x5',
   token: 'gETH',
-  label: 'Görli',
+  label: 'Göerli Testnet',
   shortName: 'gor',
   rpcUrl: 'https://goerli.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161',
   blockExplorerUrl: 'https://goerli.etherscan.io',
@@ -56,7 +70,7 @@ export const mumbaiChain: Chain = {
   id: '0x13881',
   token: 'matic',
   shortName: 'matic',
-  label: 'Mumbai',
+  label: 'Mumbai Testnet',
   rpcUrl: 'https://rpc-mumbai.maticvigil.com/',
   blockExplorerUrl: 'https://mumbai.polygonscan.com',
   color: '#8248E5',
@@ -65,7 +79,33 @@ export const mumbaiChain: Chain = {
   faucetUrl: 'https://mumbaifaucet.com/'
 }
 
-const chains: Chain[] = [gnosisChain, goerliChain, mainnetChain, mumbaiChain, polygonChain]
+export const MantleTestnet: Chain = {
+  id: '0x1389',
+  token: 'MNT',
+  shortName: 'mnt',
+  label: 'Mantle Testnet',
+  rpcUrl: 'https://rpc-mumbai.maticvigil.com/',
+  blockExplorerUrl: 'https://mumbai.polygonscan.com',
+  color: '#DDDDDD',
+  isStripePaymentsEnabled: true,
+  isMoneriumPaymentsEnabled: false,
+  faucetUrl: '0x69f4D1788e39c87893C980c06EdF4b7f686e2938'
+}
+
+export const ScrollTestnet: Chain = {
+  id: '0x8274f',
+  token: 'ETH',
+  shortName: 'scr',
+  label: 'Scroll Testnet',
+  rpcUrl: 'https://rpc-mumbai.maticvigil.com/',
+  blockExplorerUrl: 'https://mumbai.polygonscan.com',
+  color: '#fbc02d',
+  isStripePaymentsEnabled: true,
+  isMoneriumPaymentsEnabled: false,
+  faucetUrl: '0xd9Db270c1B5E3Bd161E8c8503c55cEABeE709552'
+}
+
+const chains: Chain[] = [gnosisChain, polygonChain, mainnetChain, MantleChain, goerliChain, MantleTestnet, ScrollTestnet, mumbaiChain  ]
 
 export const initialChain = mumbaiChain
 

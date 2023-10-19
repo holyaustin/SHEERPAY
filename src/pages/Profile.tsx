@@ -21,7 +21,7 @@ import { useAccountAbstraction } from 'src/store/accountAbstractionContext'
 
 const transferAmount = 0.01
 
-const RelayerKitDemo = () => {
+const Profile = () => {
   const {
     chainId,
     chain,
@@ -47,13 +47,11 @@ const RelayerKitDemo = () => {
   return (
     <>
       <Typography variant="h2" component="h1">
-        Deploy Safe and Send Funds to anyone anywhere (gasless)
+        User Profile
       </Typography>
 
       <Typography marginTop="16px">
-        Allow users to pay fees using any ERC-20 tokens, without having to manage gas. Sponsor
-        transactions on behalf of your users. On your first relayed transaction, a Safe Account will
-        be automatically deployed and your address will be assigned as the Safe owner.
+        Update your Profile.
       </Typography>
 {/**
  *       <Typography marginTop="24px" marginBottom="8px">
@@ -176,4 +174,4 @@ const RelayerKitDemo = () => {
   )
 }
 
-export default RelayerKitDemo
+export default Profile
