@@ -52,7 +52,7 @@ const NavMenu = ({ setStep, activeStep }: NavMenuProps) => {
             04
           </OrderLabel>
           <Typography fontWeight="700" fontSize="20px" marginLeft="12px">
-            Swap Token
+          Cross-chain Transfer
           </Typography>
         </NavItem>
 

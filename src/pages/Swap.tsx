@@ -17,7 +17,7 @@ import GelatoTaskStatusLabel from 'src/components/gelato-task-status-label/Gelat
 import SafeAccount from 'src/components/safe-account/SafeAccount'
 import { ConnectedContainer } from 'src/components/styles'
 import { useAccountAbstraction } from 'src/store/accountAbstractionContext'
-//import { GELATO_SNIPPET } from 'src/utils/snippets'
+import WormholeBridge from '@wormhole-foundation/wormhole-connect';
 
 const transferAmount = 0.01
 
@@ -47,39 +47,16 @@ const Swap = () => {
   return (
     <>
       <Typography variant="h2" component="h1">
-        Swap funds for othe token
+       Cross-Chain Token Transfer
         
       </Typography>
 
       <Typography marginTop="16px">
-        Swap your USDC, USDT for other ERC20 Tokens
-      </Typography>
-{/**
- *       <Typography marginTop="24px" marginBottom="8px">
-        Find more info at:
+        Bridge your Asset and transfer your Assets (USDC, USDT) from One Chain to another with ease.
       </Typography>
 
-      <Stack direction="row" alignItems="center" spacing={2}>
-        <Link
-          href="https://github.com/safe-global/safe-core-sdk/tree/main/packages/relay-kit"
-          target="_blank"
-        >
-          Github
-        </Link>
-
-        <Link href="https://docs.safe.global/safe-core-aa-sdk/relay-kit" target="_blank">
-          Documentation
-        </Link>
-      </Stack>
- */}
       <Divider sx={{ margin: '32px 0 28px 0' }} />
 
-
-      {/* Relay Demo 
-      <Typography variant="h4" component="h2" fontWeight="700" marginBottom="16px">
-        Interactive demo
-      </Typography>
-*/}
       {!isAuthenticated ? (
         <AuthenticateMessage
           message="To use the Relay Kit you need to be authenticated"
@@ -99,78 +76,16 @@ const Swap = () => {
             alignItems="flex-start"
             flexShrink={0}
           >
-            <Typography fontWeight="700">Relayed transaction</Typography>
-
-            {/* Gelato status label */}
-            {gelatoTaskId && (
-              <GelatoTaskStatusLabel
-                gelatoTaskId={gelatoTaskId}
-                chainId={chainId}
-                setTransactionHash={setTransactionHash}
-                transactionHash={transactionHash}
-              />
-            )}
-
-            {isRelayerLoading && <LinearProgress sx={{ alignSelf: 'stretch' }} />}
-
-            {!isRelayerLoading && !gelatoTaskId && (
-              <>
-                <Typography fontSize="14px">
-                  Check the status of your relayed transaction.
-                </Typography>
-
-                {/* send fake transaction to Gelato relayer */}
-                <Button
-                  startIcon={<SendIcon />}
-                  variant="contained"
-                  disabled={!hasNativeFunds}
-                  onClick={relayTransaction}
-                >
-                  Send Transaction
-                </Button>
-
-                {!hasNativeFunds && (
-                  <Typography color="error">
-                    Insufficient funds. Send some funds to the Safe Account
-                  </Typography>
-                )}
-
-                {!hasNativeFunds && chain?.faucetUrl && (
-                  <Link href={chain.faucetUrl} target="_blank">
-                    Request 0.5 {chain.token}.
-                  </Link>
-                )}
-              </>
-            )}
-
-            {/* Transaction details */}
-            <Stack gap={0.5} display="flex" flexDirection="column">
-              <Typography>
-                Transfer {transferAmount} {chain?.token}
+              <Typography fontWeight="700">
+                WormHole Connect Bridge
               </Typography>
-
-              {safeSelected && (
-                <Stack gap={0.5} display="flex" flexDirection="row">
-                  <AddressLabel address={safeSelected} showCopyIntoClipboardButton={false} />
-
-                  <ArrowRightAltRoundedIcon />
-
-                  <AddressLabel address={safeSelected} showCopyIntoClipboardButton={false} />
-                </Stack>
-              )}
-            </Stack>
+              <>
+              <WormholeBridge /> 
+              </>
           </ConnectedContainer>
         </Box>
       )}
-{/**
-      <Divider style={{ margin: '40px 0 30px 0' }} />
 
-      <Typography variant="h3" component="h2" fontWeight="700" marginBottom="16px">
-        How to use it
-      </Typography>
-
-      <Code text={GELATO_SNIPPET} language={'javascript'} />
-     */}
     </>
   )
 }

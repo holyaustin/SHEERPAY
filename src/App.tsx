@@ -133,7 +133,7 @@ const steps = [
   {
     // Relay Kit step
     component: RelayerKitDemo,
-    nextLabel: 'Swap'
+    nextLabel: 'Cross-chain Transfer'
   },
   {
     // Swap step

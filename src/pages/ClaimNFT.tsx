@@ -9,8 +9,11 @@ import Stack from '@mui/material/Stack'
 import Typography from '@mui/material/Typography'
 import { utils } from 'ethers'
 import { useState } from 'react'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import AddressLabel from 'src/components/address-label/AddressLabel'
+import Mint from 'src/components/mint/mint'
 import AuthenticateMessage from 'src/components/authenticate-message/AuthenticateMessage'
 //import Code from 'src/components/code/Code'
 import GelatoTaskStatusLabel from 'src/components/gelato-task-status-label/GelatoTaskStatusLabel'
@@ -30,7 +33,7 @@ const ClaimNFT = () => {
     safeBalance,
 
     isRelayerLoading,
-    relayTransaction,
+    //relayTransaction,
     gelatoTaskId,
 
     isAuthenticated,
@@ -98,7 +101,7 @@ const ClaimNFT = () => {
             alignItems="flex-start"
             flexShrink={0}
           >
-            <Typography fontWeight="700">Relayed transaction</Typography>
+            <Typography fontWeight="700">Claim NFT</Typography>
 
             {/* Gelato status label */}
             {gelatoTaskId && (
@@ -123,10 +126,11 @@ const ClaimNFT = () => {
                   startIcon={<SendIcon />}
                   variant="contained"
                   disabled={!hasNativeFunds}
-                  onClick={relayTransaction}
+                  onClick={Mint}  //{relayTransaction}
                 >
-                  Send Transaction
-                </Button>
+                  Claim NFT
+                  </Button>
+                  <ToastContainer />
 
                 {!hasNativeFunds && (
                   <Typography color="error">
