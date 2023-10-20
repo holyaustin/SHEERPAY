@@ -149,31 +149,14 @@ const ClaimNFT = () => {
             {/* Transaction details */}
             <Stack gap={0.5} display="flex" flexDirection="column">
               <Typography>
-                Transfer {transferAmount} {chain?.token}
+                NFT Transfer to wallet can only be claimed once.
               </Typography>
 
-              {safeSelected && (
-                <Stack gap={0.5} display="flex" flexDirection="row">
-                  <AddressLabel address={safeSelected} showCopyIntoClipboardButton={false} />
-
-                  <ArrowRightAltRoundedIcon />
-
-                  <AddressLabel address={safeSelected} showCopyIntoClipboardButton={false} />
-                </Stack>
-              )}
             </Stack>
           </ConnectedContainer>
         </Box>
       )}
-{/**
-      <Divider style={{ margin: '40px 0 30px 0' }} />
 
-      <Typography variant="h3" component="h2" fontWeight="700" marginBottom="16px">
-        How to use it
-      </Typography>
-
-      <Code text={GELATO_SNIPPET} language={'javascript'} />
-     */}
     </>
   )
 }
