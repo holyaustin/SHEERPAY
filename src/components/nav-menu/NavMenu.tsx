@@ -70,7 +70,7 @@ const NavMenu = ({ setStep, activeStep }: NavMenuProps) => {
             06
           </OrderLabel>
           <Typography fontWeight="700" fontSize="20px" marginLeft="12px">
-          Chat
+          Invite Friends / Chat
           </Typography>
         </NavItem>
 

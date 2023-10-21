@@ -2,6 +2,7 @@ import ArrowRightAltRoundedIcon from '@mui/icons-material/ArrowRightAltRounded'
 import SendIcon from '@mui/icons-material/SendRounded'
 import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
+import TextField from '@mui/material/TextField';
 import Divider from '@mui/material/Divider'
 import LinearProgress from '@mui/material/LinearProgress'
 import Link from '@mui/material/Link'
@@ -12,16 +13,30 @@ import { useState } from 'react'
 
 import AddressLabel from 'src/components/address-label/AddressLabel'
 import AuthenticateMessage from 'src/components/authenticate-message/AuthenticateMessage'
-//import Code from 'src/components/code/Code'
 import GelatoTaskStatusLabel from 'src/components/gelato-task-status-label/GelatoTaskStatusLabel'
 import SafeAccount from 'src/components/safe-account/SafeAccount'
 import { ConnectedContainer } from 'src/components/styles'
 import { useAccountAbstraction } from 'src/store/accountAbstractionContext'
-//import { GELATO_SNIPPET } from 'src/utils/snippets'
+
+import { Database } from "@tableland/sdk";
+import { Wallet, getDefaultProvider } from "ethers";
+require('dotenv').config();
+
+
+const privateKey = process.env.REACT_APP_PRIVATE_KEY; // Your private key
+const rpc = process.env.REACT_APP_ALCHEMY_RPC;
+const wallet = new Wallet(privateKey);
+// To avoid connecting to the browser wallet (locally, port 8545),
+// replace the URL with a provider like Alchemy, Infura, Etherscan, etc.
+const provider = getDefaultProvider(rpc); // For example: "https://polygon-mumbai.g.alchemy.com/v2/${process.env.YOUR_ALCHEMY_KEY}"
+const signer = wallet.connect(provider);
+
 
 const transferAmount = 0.01
 
 const Profile = () => {
+  const [formInput, updateFormInput] = useState({ name: "SheerPay User" });
+  
   const {
     chainId,
     chain,
@@ -43,6 +58,27 @@ const Profile = () => {
 
   const hasNativeFunds =
     !!safeBalance && Number(utils.formatEther(safeBalance || '0')) > transferAmount
+  
+  const addProfile = async () => {
+
+    let x = Math.floor((Math.random() * 1000000000) + 1);
+    const { name } = formInput;
+    if (!name ) return;
+
+    // Connect to the database
+    const db = new Database({ signer });
+    let myDate = Date()
+  
+    // Insert a row into the table
+    const { meta: insert } = await db
+      .prepare(`INSERT INTO profile2_80001_8037 (id, username, date_created, wallet) VALUES (?, ?, ?, ?);`)
+      .bind({ x }, "SheerPay User", myDate.toString(), {safeSelected}  )
+        .run();
+  
+      // Wait for transaction finality
+      await insert.txn?.wait();
+    }
+  
 
   return (
     <>
@@ -53,32 +89,9 @@ const Profile = () => {
       <Typography marginTop="16px">
         Update your Profile.
       </Typography>
-{/**
- *       <Typography marginTop="24px" marginBottom="8px">
-        Find more info at:
-      </Typography>
 
-      <Stack direction="row" alignItems="center" spacing={2}>
-        <Link
-          href="https://github.com/safe-global/safe-core-sdk/tree/main/packages/relay-kit"
-          target="_blank"
-        >
-          Github
-        </Link>
-
-        <Link href="https://docs.safe.global/safe-core-aa-sdk/relay-kit" target="_blank">
-          Documentation
-        </Link>
-      </Stack>
- */}
       <Divider sx={{ margin: '32px 0 28px 0' }} />
 
-
-      {/* Relay Demo 
-      <Typography variant="h4" component="h2" fontWeight="700" marginBottom="16px">
-        Interactive demo
-      </Typography>
-*/}
       {!isAuthenticated ? (
         <AuthenticateMessage
           message="To use the Relay Kit you need to be authenticated"
@@ -115,17 +128,26 @@ const Profile = () => {
             {!isRelayerLoading && !gelatoTaskId && (
               <>
                 <Typography fontSize="14px">
-                  Check the status of your relayed transaction.
-                </Typography>
+                  Add a profile to your safe account
+                  </Typography>
+
+                  <TextField
+                    id="outlined-basic"
+                    variant="outlined"
+            placeholder="Enter User Name"
+            className="mt-5 border rounded p-4 text-xl"
+            onChange={(e) => updateFormInput({ ...formInput, name: e.target.value })}
+            
+              />
 
                 {/* send fake transaction to Gelato relayer */}
                 <Button
                   startIcon={<SendIcon />}
                   variant="contained"
                   disabled={!hasNativeFunds}
-                  onClick={relayTransaction}
+                  onClick={addProfile}
                 >
-                  Send Transaction
+                  Create new profile
                 </Button>
 
                 {!hasNativeFunds && (
@@ -145,31 +167,14 @@ const Profile = () => {
             {/* Transaction details */}
             <Stack gap={0.5} display="flex" flexDirection="column">
               <Typography>
-                Transfer {transferAmount} {chain?.token}
+                Create new profile 
               </Typography>
 
-              {safeSelected && (
-                <Stack gap={0.5} display="flex" flexDirection="row">
-                  <AddressLabel address={safeSelected} showCopyIntoClipboardButton={false} />
-
-                  <ArrowRightAltRoundedIcon />
-
-                  <AddressLabel address={safeSelected} showCopyIntoClipboardButton={false} />
-                </Stack>
-              )}
             </Stack>
           </ConnectedContainer>
         </Box>
       )}
-{/**
-      <Divider style={{ margin: '40px 0 30px 0' }} />
 
-      <Typography variant="h3" component="h2" fontWeight="700" marginBottom="16px">
-        How to use it
-      </Typography>
-
-      <Code text={GELATO_SNIPPET} language={'javascript'} />
-     */}
     </>
   )
 }
