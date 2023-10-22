@@ -1,16 +1,34 @@
 # SheerPay app
 
-[The Safe{Core} SDK](https://github.com/safe-global/safe-core-sdk) allows builders to add account abstraction functionality into their apps. This demo is an example on how to use our different packages (Auth Kit, OnRamp Kit & Relay Kit).
-
-See the [Safe{Core} Account Abstraction SDK Docs](https://docs.safe.global/learn/safe-core-account-abstraction-sdk) for more details.
-
 ## Introduction
 
-Multi Chain Payment Management using AA -> Get paid and Pay with any Crypto Currency seamlessly using SafePay
+A payment solution that uses Account Abstraction and a secured method to transfer payment using email addresses or social logins  (something that users are already familiar with). Leveraging AA's capabilities to facilitate cost-effective and instantaneous settlements.
 
-Features Using this system, companies can easily pay their employees with any cryptocurrency or fiat currency, which could potentially lead to faster, more secure, and cheaper transactions than traditional payroll methods.
+![home](./crpto3.mp4)
 
-Additionally, using smart contracts for payroll management reduces the risk of fraud, errors, and disputes by automating payroll calculations and payments.
+## Problem Statement
+
+Africa's crypto adoption is not great due to the cumbersomeness of using wallets.  If you use something that is already familiar to the users, it will get more adoption.
+
+The everyday person in Africa does not know or is afraid of using web3.  Downloading wallets, private keys etc.have not really encourgaed more users from Africa to accept web3. The cumbersome onbaording scenerio made web have very little chance to penetrate the broaders of African market. In short, it is confined to a small number of Africans.
+
+What if we can create a platform that the users only signup with what they are already familiar with (emails, socials login, phone number etc.)  The platform create an addresss under the hood for the users to send and receive funds.
+
+## Solutions
+
+What if we could leverage web3 under the hood to provide a service that everybody needs: SheerPay.
+
+Easy onboarding, no stress, to learn about web3 or crypto.
+
+People are afraid of the wallet, private key etc.
+
+Mitigate the risk by letting then use what they already know
+
+Easily invite others to join
+
+Multi Chain Payment Management using AA
+
+-> Get paid and Pay with any Crypto Currency seamlessly using SheerPay
 
 Account abstraction could make this system much more efficient and cost-effective. By abstracting the user's account, it separates the user's private key from their on-chain address.
 
@@ -44,16 +62,18 @@ Run the demo App:
 yarn start
 ```
 
-IPFS metadata URI : <https://kezayya.infura-ipfs.io/ipfs/QmQDWyu9Myrmain5WjdP5rkuVQbS3rQTdTTrBuLeuYWShD>
+## Technologies used / how it was made
 
-npx hardhat verify --network scrollSepolia 0xe078fe7A93017F8e18c1C52E79632d0B94c56c26
+Working with Safe, polygon. The Safe account abstraction template was used to quickly start off cthe project. Configuration was made to accept more chain that was not default to the template. Chains Like Polygon Mumbai, Scroll and Mantle was given considerations while building. 
 
-Successfully submitted source code for contract
-contracts/Minter.sol:Minter at 0xe078fe7A93017F8e18c1C52E79632d0B94c56c26
-for verification on the block explorer. Waiting for verification result...
+Smart contract with claimables was written with solidity and deployed to mubai testnet, scroll sepolia testnet and mantle testnet. Any new user that onbaords can claim their claimables via any of these chains.
+Tableland Studio was used to create the user profile and the explorer tables to show the history of all transactions.
 
-Successfully verified contract Minter on the block explorer.
-<https://sepolia-blockscout.scroll.io/address/0xe078fe7A93017F8e18c1C52E79632d0B94c56c26#code>
+Across and Wormholes was implemented to help users bridge multi-chain from one chain or token to another with ease.
+
+XMTP was used to help users chat among themselves.
+
+Frontend was written with ReactJS.
 
 ## Bounty Prizes vying for
 
@@ -65,7 +85,7 @@ Studio team name : holyaustin
 
 use the Studio CLI tool to populate tables with data.
 
-https://studio.tableland.xyz/holyaustin/sheerpay
+<https://studio.tableland.xyz/holyaustin/sheerpay>
 
 <https://studio.tableland.xyz/holyaustin/sheerpay/deployments/default/profile2>
 
@@ -73,7 +93,7 @@ https://studio.tableland.xyz/holyaustin/sheerpay
 
 tableland read "SELECT * FROM test_80001_7975;" --chain maticmum
 
-tableland write "INSERT INTO profile2_80001_8037 VALUES (1, 10, '10-10-2023', 100)" --chain maticmum --privateKey 1a117347dc07dcb00e01fceeb9b5b849d9784d5264cdb705727edfa76e60e9a1 --providerUrl <https://polygon-mumbai.g.alchemy.com/v2/odpZQIbE3xtAii8qMNePX-0M6fyB8G0V>
+tableland write "INSERT INTO profile2_80001_8037 VALUES (1, 10, '10-10-2023', 100)" --chain maticmum --privateKey --providerUrl <https://polygon-mumbai.g.alchemy.com/v2/odpZQIbE3xtAii8qMNePX-0M6fyB8G0V>
 
 tableland write "INSERT INTO profile2_80001_8037 VALUES (7, 'user6', '20-10-2023', 'Ox700700100100100100100100100100100100100')"
 
@@ -87,11 +107,20 @@ Use XMTP invite friends for web3 onboarding.
 
 Used scroll to deploy NFT claimables for customers who onbaord through account abstraction. Smart contract deployed to : <https://sepolia.scrollscan.dev/address/0x4e75d8f85ed40aa3f73fb751b1dfa07defe09c94>
 
+npx hardhat verify --network scrollSepolia 0xe078fe7A93017F8e18c1C52E79632d0B94c56c26
+
+Successfully submitted source code for contract
+contracts/Minter.sol:Minter at 0xe078fe7A93017F8e18c1C52E79632d0B94c56c26
+for verification on the block explorer. Waiting for verification result...
+
+Successfully verified contract Minter on the block explorer.
+<https://sepolia-blockscout.scroll.io/address/0xe078fe7A93017F8e18c1C52E79632d0B94c56c26#code>
+
 ### Mantle
 
 Used Mantle to deploy NFT claimables for customers who onbaord through account abstraction. Smart contract deployed to : <https://explorer.testnet.mantle.xyz/address/0x4e75D8F85ED40aA3f73fB751b1Dfa07DEFe09C94>
 
-https://twitter.com/holyaustin/status/1715775239496360229
+<https://twitter.com/holyaustin/status/1715775239496360229>
 
 ### Polygon Mumbai : Best Public Good with Account Abstraction or Gasless transactions on Polygon
 
@@ -111,4 +140,10 @@ Used MerkleDistributor in Across
 
 Used the Wormhole Connect to bridge in-app cross-chain transactions. We implemented cross-chain application using Wormhole's automatic relayer.
 
-Tweet: https://twitter.com/holyaustin/status/1715775239496360229
+Tweet: <https://twitter.com/holyaustin/status/1715775239496360229>
+
+### Project Links
+
+DApp Url: https://sheerpay.vercel.app/
+
+Youtube: https://youtu.be/iUggZSZ8mvU
