@@ -4,7 +4,7 @@
 
 A payment solution that uses Account Abstraction and a secured method to transfer payment using email addresses or social logins  (something that users are already familiar with). Leveraging AA's capabilities to facilitate cost-effective and instantaneous settlements.
 
-![home](./crpto3.mp4)
+![home](./sheerpay1.png)
 
 ## Problem Statement
 

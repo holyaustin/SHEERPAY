@@ -12,8 +12,7 @@ import Stack from '@mui/material/Stack'
 import Typography from '@mui/material/Typography'
 import { utils } from 'ethers'
 import { useState } from 'react'
-
-//import AddressLabel from 'src/components/address-label/AddressLabel'
+import HDKeys from 'src/components/hd-keys/hdkeys'
 import AuthenticateMessage from 'src/components/authenticate-message/AuthenticateMessage'
 import GelatoTaskStatusLabel from 'src/components/gelato-task-status-label/GelatoTaskStatusLabel'
 import SafeAccount from 'src/components/safe-account/SafeAccount'
@@ -69,6 +68,7 @@ const Chat = () => {
     if (!email ) return;
 
     toast("Invite send to recipient!");
+    // HDKeys()
   }
   
  

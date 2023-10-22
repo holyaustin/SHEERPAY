@@ -140,7 +140,7 @@ const RelayerKitDemo = () => {
                   <TextField
                     id="outlined-basic"
                     variant="outlined"
-                    placeholder="Enter User Name"
+                    placeholder="Receiver's address"
                     className="mt-5 border rounded p-4 text-xl"
                     onChange={(e) => updateFormInput({ ...formInput, receiver: e.target.value })}
             
@@ -148,7 +148,7 @@ const RelayerKitDemo = () => {
                   <TextField
                     id="outlined-basic"
                     variant="outlined"
-                    placeholder="Enter User Name"
+                    placeholder="Amount to send"
                     className="mt-5 border rounded p-4 text-xl"
                     onChange={(e) => updateFormInput({ ...formInput, amount: e.target.value })}
             
