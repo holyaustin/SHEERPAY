@@ -68,35 +68,11 @@ const OnRampKitDemo = ({ setStep }: OnRampKitDemoProps) => {
         Fund your Account with Credit Card (on-ramp)
       </Typography>
 
-      <Typography marginTop="16px">
+      <Typography marginTop="16px" marginBottom="16px">
         Allow users to buy cryptocurrencies using a credit card and other payment options directly
         within your app. Click on "Buy USDC" to on-ramp funds to your Safe using the Stripe widget!
       </Typography>
-{/**
-      <Typography marginTop="24px" marginBottom="8px">
-        Find more info at:
-      </Typography>
 
-      <Stack direction="row" alignItems="center" spacing={2}>
-        <Link
-          href="https://github.com/safe-global/safe-core-sdk/tree/main/packages/onramp-kit"
-          target="_blank"
-        >
-          Github
-        </Link>
-
-        <Link href="https://docs.safe.global/safe-core-aa-sdk/onramp-kit" target="_blank">
-          Documentation
-        </Link>
-      </Stack>
-
-      <Divider style={{ margin: '32px 0 28px 0' }} />
- */}
-      {/* OnRamp Demo 
-      <Typography variant="h4" component="h2" fontWeight="700" marginBottom="16px">
-        Interactive demo
-      </Typography>
-*/}
       {!isAuthenticated ? (
         <AuthenticateMessage
           message="To use the Onramp Kit you need to be authenticated"

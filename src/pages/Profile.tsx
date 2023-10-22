@@ -111,7 +111,7 @@ const Profile = () => {
             alignItems="flex-start"
             flexShrink={0}
           >
-            <Typography fontWeight="700">Relayed transaction</Typography>
+            <Typography fontWeight="700">User Profile</Typography>
 
             {/* Gelato status label */}
             {gelatoTaskId && (

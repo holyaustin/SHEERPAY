@@ -47,7 +47,12 @@ const Activities = () => {
 
             {/* Owner details */}
             <ConnectedWalletLabel />
+            <Typography variant="h4" component="h2" fontWeight="700" marginTop="36px" marginBottom="16px">
+            Coming soon
+            </Typography>
           </ConnectedContainer>
+
+
         </Box>
       ) : (
         <ConnectContainer display="flex" flexDirection="column" alignItems="center" gap={2}>

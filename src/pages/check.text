@@ -1,5 +1,3 @@
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 import ArrowRightAltRoundedIcon from '@mui/icons-material/ArrowRightAltRounded'
 import SendIcon from '@mui/icons-material/SendRounded'
 import Box from '@mui/material/Box'
@@ -26,7 +24,10 @@ const transferAmount = 0.01
 
 const RelayerKitDemo = () => {
   const [formInput, updateFormInput] = useState({ receiver: "", amount: "" });
-
+  const { receiver, amount } = formInput;
+  console.log("receiver", receiver);
+  console.log("amount", amount);
+ 
   const {
     chainId,
     chain,
@@ -41,25 +42,15 @@ const RelayerKitDemo = () => {
     isAuthenticated,
     loginWeb3Auth
   } = useAccountAbstraction()
-  
 
   const [transactionHash, setTransactionHash] = useState<string>('')
+
+  if (!receiver || !amount) return;
 
   // TODO: ADD PAY FEES USING USDC TOKEN
 
   const hasNativeFunds =
     !!safeBalance && Number(utils.formatEther(safeBalance || '0')) > transferAmount
-  
-    const sendFund = async () => {
-      const { receiver, amount } = formInput;
-      console.log("receiver", receiver);
-      console.log("amount", amount);
-
-      if (!receiver || !amount) return;
-      
-      toast("Transfer was successul!");
-
-      }
 
   return (
     <>
@@ -117,7 +108,7 @@ const RelayerKitDemo = () => {
             alignItems="flex-start"
             flexShrink={0}
           >
-            <Typography fontWeight="700">Relayed transaction / Send to external account</Typography>
+            <Typography fontWeight="700">Relayed transaction</Typography>
 
             {/* Gelato status label */}
             {gelatoTaskId && (
@@ -134,7 +125,7 @@ const RelayerKitDemo = () => {
             {!isRelayerLoading && !gelatoTaskId && (
               <>
                 <Typography fontSize="14px">
-                  Use the form to send to external account.
+                  Check the status of your relayed transaction.
                   </Typography>
                   
                   <TextField
@@ -161,19 +152,8 @@ const RelayerKitDemo = () => {
                   disabled={!hasNativeFunds}
                   onClick={relayTransaction}
                 >
-                  Send Transaction Internal
-                  </Button>
-                  <ToastContainer />
-                  
-                  <Button
-                  startIcon={<SendIcon />}
-                  variant="outlined"
-                  disabled={!hasNativeFunds}
-                  onClick={sendFund}
-                >
-                  Send Transaction External
-                  </Button>
-                  <ToastContainer />
+                  Send Transaction
+                </Button>
 
                 {!hasNativeFunds && (
                   <Typography color="error">

@@ -17,7 +17,7 @@ import GelatoTaskStatusLabel from 'src/components/gelato-task-status-label/Gelat
 import SafeAccount from 'src/components/safe-account/SafeAccount'
 import { ConnectedContainer } from 'src/components/styles'
 import { useAccountAbstraction } from 'src/store/accountAbstractionContext'
-import WormholeBridge from '@wormhole-foundation/wormhole-connect';
+import WormholeBridge from "@wormhole-foundation/wormhole-connect";
 
 const transferAmount = 0.01
 
@@ -80,12 +80,11 @@ const Swap = () => {
                 WormHole Connect Bridge
               </Typography>
               <>
-              <WormholeBridge /> 
+              <WormholeBridge />;
               </>
           </ConnectedContainer>
         </Box>
       )}
-
     </>
   )
 }
